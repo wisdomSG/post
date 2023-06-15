@@ -19,21 +19,21 @@ public class Post extends Timestamped{
     private String  title;
     @Column(name = "username", nullable = false)
     private String username;
-    @Column(name = "contents", nullable = false)
-    private String contents;
     @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "contents", nullable = false, length = 500)
+    private String contents;
 
     public Post(PostRequestDto requestDto) {
-        this.title = title;
-        this.username = username;
-        this.contents = contents;
-        this.password = password;
+        this.title = requestDto.getTitle();
+        this.username = requestDto.getUsername();
+        this.contents = requestDto.getContents();
+        this.password = requestDto.getPassword();
     }
     public void update(PostRequestDto requestDto) {
-        this.title = title;
-        this.username = username;
-        this.contents = contents;
-        this.password = password;
+        this.title = requestDto.getTitle();
+        this.username = requestDto.getUsername();
+        this.contents = requestDto.getContents();
+        this.password = requestDto.getPassword();
     }
 }
